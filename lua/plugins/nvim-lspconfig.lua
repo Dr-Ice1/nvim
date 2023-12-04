@@ -124,20 +124,19 @@ local config = function()
 		},
 	})
 
-  -- Latex
   lspconfig.texlab.setup({
     capabilities = capabilities,
     on_attach = on_attach,
     settings = {
-      workspace = {
-        -- make language server aware of runtime files
-        library = {
-          [vim.fn.expand("$VIMRUNTIME/latex")] = true,
-          [vim.fn.stdpath("config") .. "/latex"] = true,
-        },
-      },
+          Latex = {
+            workspace = {
+                library = {
+                  [vim.fn.expand("$VIMRUNTIME/latex")] = true,
+                  [vim.fn.stdpath("config") .. "/latex"] = true,
+                },
+            },    
+          },
     },
-    filetypes = { 'tex', 'plaintex', 'bib', 'latex' },
   })
 
 	local luacheck = require("efmls-configs.linters.luacheck")

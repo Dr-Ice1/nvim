@@ -1,12 +1,21 @@
-vim.g.vimtex_view_general_viewer = 'SumatraPDF'
-vim.g.vimtex_compiler_method = 'latexmk'
-vim.g.vimtex_view_general_options = '-reuse-instance @pdf'
+-- vim.g.vimtex_view_general_viewer = 'SumatraPDF'
+-- vim.g.vimtex_compiler_method = 'latexmk'
+-- vim.g.vimtex_view_general_options = '-reuse-instance @pdf'
 
 
-return {
-
-  'lervag/vimtex',
+return { "lervag/vimtex",
   lazy = false,
-
-
+  ft = {"tex", "markdown", "bib"},
+  init = function()
+       vim.g.vimtex_syntax_enabled = 1
+       vim.g.vimtex_view_general_viewer = "SumatraPDF"
+       vim.g.vimtex_quickfix_open_on_warning = 0
+       vim.g.vimtex_view_enabled = 1
+       vim.g.vimtex_compiler_method = 'latexmk'
+  end,
 }
+
+
+
+
+

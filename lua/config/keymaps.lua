@@ -15,10 +15,12 @@ keymap.set('n', "<c-l>", "<C-w>l", opts) -- Navigate Right
 keymap.set('n', "<leader>sv", ":vsplit<CR>", opts) -- Split Vertically
 keymap.set('n', "<leader>sh", ":split<CR>", opts) -- Split Horizontally
 
-
+--[[ Telescope keymaps ]]
 vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', opts)
 vim.keymap.set('n', '<leader>wf', ':Telescope live_grep<CR>', opts)
 vim.keymap.set('n', '<leader>fb', ':Telescope buffers<CR>', opts)
+vim.keymap.set('n', '<leader>gf', ':Telescope git_files<CR>', opts)
+
 
 keymap.set("v", "<", "<gv") -- Shift Indentation to Left
 keymap.set("v", ">", ">gv") -- Shift Indentation to Right

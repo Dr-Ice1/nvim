@@ -10,6 +10,6 @@ return {
 		end,
     config = function()
       vim.cmd('colorscheme solarized-osaka')
-    end
+    end,
 	},
 }

@@ -11,10 +11,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
 require('config.globals')
 require('config.options')
 require('config.keymaps')
+
 
 
 
@@ -40,7 +40,7 @@ local opts = {
 		},
 	},
 	change_detection = {
-		notify = false,
+		notify = true,
 	},
 }
 

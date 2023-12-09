@@ -137,7 +137,7 @@ local config = function()
 					autoImportCompletions = true,
           }
       },
-      Python = {
+      Latex = {
         workspace = {
             library = {
               [vim.fn.expand("$VIMRUNTIME/latex")] = true,

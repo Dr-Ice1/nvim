@@ -13,7 +13,6 @@ opt.number = true
 opt.relativenumber = true
 opt.termguicolors = true
 
-
 opt.mouse:append("a")
 opt.clipboard:append("unnamedplus")
 

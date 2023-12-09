@@ -8,7 +8,7 @@ require('lspconfig').pyright.setup({})
 require('plugins.texlab')
 require('lspconfig').texlab.setup({})
 require('plugins.vimtex')
-
-
+require('plugins.bufferline')
+require('lualine').setup()
 
 

@@ -128,15 +128,24 @@ local config = function()
     capabilities = capabilities,
     on_attach = on_attach,
     settings = {
-          Latex = {
-            workspace = {
-                library = {
-                  [vim.fn.expand("$VIMRUNTIME/latex")] = true,
-                  [vim.fn.stdpath("config") .. "/latex"] = true,
-                },
-            },    
+      texlab = {
+				disableOrganizeImports = false,
+				analysis = {
+					useLibraryCodeForTypes = true,
+					autoSearchPaths = true,
+					diagnosticMode = "workspace",
+					autoImportCompletions = true,
+          }
+      },
+      Python = {
+        workspace = {
+            library = {
+              [vim.fn.expand("$VIMRUNTIME/latex")] = true,
+              [vim.fn.stdpath("config") .. "/latex"] = true,
+            },
           },
-    },
+        },
+    }
   })
 
 	local luacheck = require("efmls-configs.linters.luacheck")

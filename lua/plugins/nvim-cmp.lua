@@ -3,13 +3,47 @@ return {
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
-		local lspkind = require("lspkind")
 
 		require("luasnip/loaders/from_vscode").lazy_load()
+    require("luasnip/loaders/from_snipmate").load({ paths = "~/.config/nvim/snippets/" })
 
 		vim.opt.completeopt = "menu,menuone,noselect"
-
+    local kind_icons = {
+      Text = "",
+      Method = "m",
+      Function = "󰊕",
+      Constructor = "",
+      Field = "",
+      Variable = "",
+      Class = "",
+      Interface = "",
+      Module = "",
+      Property = "",
+      Unit = "",
+      Value = "",
+      Enum = "",
+      Keyword = "",
+      Snippet = "",
+      Color = "",
+      File = "",
+      Reference = "",
+      Folder = "",
+      EnumMember = "",
+      Constant = "",
+      Struct = "",
+      Event = "",
+      Operator = "",
+      TypeParameter = "",
+    }
 		cmp.setup({
+      completion = {
+        autocomplete = {
+          cmp.TriggerEvent.TextChanged,
+          cmp.TriggerEvent.InsertEnter,
+        },
+        completeopt = "menu,noselect",
+        keyword_length = 1,
+      },
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
@@ -28,16 +62,34 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" }, -- lsp
 				{ name = "luasnip" }, -- snippets
+        { name = "omni" },
         { name = "buffer"},
 				{ name = "path" }, -- file system paths
+        { name = "latex_symbols",
+            filetype = { "tex", "latex" },
+            option = { cache = true }, -- avoids reloading each time
+        },
 			}),
-			-- configure lspkind for vs-code like icons
-			formatting = {
-				format = lspkind.cmp_format({
-					maxwidth = 50,
-					ellipsis_char = "...",
-				}),
-			},
+      formatting = {
+        fields = { "kind", "abbr", "menu" },
+        format = function(entry, vim_item)
+      -- Kind icons
+      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+      -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+      vim_item.menu = ({
+        -- omni = "[VimTex]",
+        omni = (vim.inspect(vim_item.menu):gsub('%"', "")),
+        nvim_lsp = "[LSP]",
+        luasnip = "[Snippet]",
+        buffer = "[Buffer]",
+        spell = "[Spell]",
+        latex_symbols = "[Symbols]",
+        cmdline = "[CMD]",
+        path = "[Path]",
+      })[entry.source.name]
+      return vim_item
+    end,
+      },
 		})
 	end,
 	dependencies = {

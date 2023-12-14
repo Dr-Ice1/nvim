@@ -128,15 +128,6 @@ local config = function()
     capabilities = capabilities,
     on_attach = on_attach,
     settings = {
-      texlab = {
-				disableOrganizeImports = false,
-				analysis = {
-					useLibraryCodeForTypes = true,
-					autoSearchPaths = true,
-					diagnosticMode = "workspace",
-					autoImportCompletions = true,
-          }
-      },
       Latex = {
         workspace = {
             library = {

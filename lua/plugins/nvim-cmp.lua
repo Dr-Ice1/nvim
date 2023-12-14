@@ -4,9 +4,6 @@ return {
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 
-		require("luasnip/loaders/from_vscode").lazy_load()
-    require("luasnip/loaders/from_snipmate").load({ paths = "~/.config/nvim/snippets/" })
-
 		vim.opt.completeopt = "menu,menuone,noselect"
     local kind_icons = {
       Text = "",
@@ -48,7 +45,8 @@ return {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
 				end,
-			},
+        require("luasnip.loaders.from_snipmate").load({ path = { "~/.config/nvim/snippets/" }}),
+      },
 			mapping = cmp.mapping.preset.insert({
 				["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
 				["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
@@ -61,7 +59,7 @@ return {
 			-- sources for autocompletion
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" }, -- lsp
-				{ name = "luasnip" }, -- snippets
+				{ name = "luasnip"}, -- snippets
         { name = "omni" },
         { name = "buffer"},
 				{ name = "path" }, -- file system paths
@@ -77,10 +75,10 @@ return {
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
-        -- omni = "[VimTex]",
-        omni = (vim.inspect(vim_item.menu):gsub('%"', "")),
+        --omni = (vim.inspect(vim_item.menu):gsub('%"', "")),
         nvim_lsp = "[LSP]",
         luasnip = "[Snippet]",
+        omni = "[VimTex]",
         buffer = "[Buffer]",
         spell = "[Spell]",
         latex_symbols = "[Symbols]",
@@ -96,12 +94,10 @@ return {
 		"onsails/lspkind.nvim",
     "hrsh7th/cmp-nvim-lsp",
 		{
-
 			"L3MON4D3/LuaSnip",
-			-- follow latest release.
-			version = "2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-			-- install jsregexp (optional!).
+			version = "2.*",
 			build = "make install_jsregexp",
 		},
+    'saadparwaiz1/cmp_luasnip',
 	},
 }

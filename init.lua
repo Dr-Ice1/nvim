@@ -8,3 +8,5 @@ require('lspconfig').pyright.setup({})
 require('lspconfig').texlab.setup({})
 
 require('plugins.nvim-cmp')
+
+

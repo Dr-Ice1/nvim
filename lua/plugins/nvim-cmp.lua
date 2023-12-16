@@ -4,7 +4,7 @@ return {
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 
-		vim.opt.completeopt = "menu,menuone,noselect"
+		vim.opt.completeopt = "menu,menuone"
     local kind_icons = {
       Text = "",
       Method = "m",
@@ -38,7 +38,7 @@ return {
           cmp.TriggerEvent.TextChanged,
           cmp.TriggerEvent.InsertEnter,
         },
-        completeopt = "menu,noselect",
+        completeopt = "menu",
         keyword_length = 1,
       },
 			snippet = {
@@ -49,12 +49,12 @@ return {
       },
 			mapping = cmp.mapping.preset.insert({
 				["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-				["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
+				["<C-q>"] = cmp.mapping.select_next_item(), -- next suggestion
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
 				["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
 				["<C-e>"] = cmp.mapping.abort(), -- close completion window
-				["<CR>"] = cmp.mapping.confirm({ select = false }),
+				["<tab>"] = cmp.mapping.confirm({ select = false }),
 			}),
 			-- sources for autocompletion
 			sources = cmp.config.sources({
@@ -97,6 +97,18 @@ return {
 			"L3MON4D3/LuaSnip",
 			version = "2.*",
 			build = "make install_jsregexp",
+      config = function()
+        local luasnip = require("luasnip")
+        vim.keymap.set({"i"}, "<C-K>", function() luasnip.expand() end, {silent = true})
+        vim.keymap.set({"i", "s"}, "<C-L>", function() luasnip.jump( 1) end, {silent = true})
+        vim.keymap.set({"i", "s"}, "<C-J>", function() luasnip.jump(-1) end, {silent = true})
+
+        vim.keymap.set({"i", "s"}, "<C-E>", function()
+          if luasnip.choice_active() then
+            luasnip.change_choice(1)
+          end
+        end, {silent = true})
+      end
 		},
     'saadparwaiz1/cmp_luasnip',
 	},

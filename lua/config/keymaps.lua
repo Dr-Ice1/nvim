@@ -29,6 +29,12 @@ vim.api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = false })
 vim.api.nvim_set_keymap("v", "<C-_>", "gcc", { noremap = false })
 
 
+keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, opts)
+
+
+
 
 
 

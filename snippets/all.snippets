@@ -12,7 +12,6 @@ snippet sec "section{}"
 snippet subsec "subsection{}"
 	\subsection{$0}
 
-
 snippet sf 'start file'
 	\title{$1}
 	\author{$2}
@@ -46,3 +45,61 @@ snippet dx "dx integral"
 
 snippet te "Text"
 	\text{$1}
+
+snippet lag "Lagrange"
+	$\mathscr{L}$$agrange$1
+
+snippet prime "Prime"
+	$1^{\prime}
+
+snippet power "To the power of"
+	$1^{$2}
+
+snippet hs "Horizontal Space"
+	\hspace{$1pt}
+
+snippet color "Colored text"
+	\textcolor{$1}{$2}
+
+snippet	leibniz "dy/dx"
+	\frac{\text{d}$1}{\text{d}$2}
+
+snippet lagr "f prime"
+	$1^{($2)}
+
+snippet dotderiv "Dot Derivative"
+	\dot{$1}
+
+snippet align "Every eq has number"
+	\begin{align}
+		$1
+	\end{align}
+
+snippet bf "Bold text"
+	\textbf{$1}
+
+snippet alnon "align no number"
+	\begin{align*}
+		$1
+	\end{align*}
+
+snippet tab "table"
+	\begin{tabularx}{0.8\textwidth} { 
+		| >{\raggedright\arraybackslash}X 
+		| >{\centering\arraybackslash}X 
+		| >{\raggedleft\arraybackslash}X | }
+	 \hline
+	 r&r \\
+	 \hline
+	 r& r \\
+	\end{tabularx}
+
+snippet block "Beamer block"
+	\begin{block}{$1}
+		$2
+	\end{block}
+
+snippet frame "Frame beamer"
+	\begin{frame}{$1}
+		$2
+	\end{frame}

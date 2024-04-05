@@ -103,3 +103,12 @@ snippet frame "Frame beamer"
 	\begin{frame}{$1}
 		$2
 	\end{frame}
+
+snippet inclgr "Include Graphics"
+	\includegraphics[scale=1]{$1}
+	\caption{$2}
+
+snippet image "Include Graphics but with position"
+	\begin{textblock*}{5cm}(2cm,2cm)
+  	\includegraphics[scale=1]{$1}
+	\end{textblock*}

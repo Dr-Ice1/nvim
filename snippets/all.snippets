@@ -106,9 +106,57 @@ snippet frame "Frame beamer"
 
 snippet inclgr "Include Graphics"
 	\includegraphics[scale=1]{$1}
-	\caption{$2}
 
 snippet image "Include Graphics but with position"
 	\begin{textblock*}{5cm}(2cm,2cm)
   	\includegraphics[scale=1]{$1}
+		\caption{$2}
 	\end{textblock*}
+
+snippet doc "Document start"
+	\documentclass[12pt,a4paper]{report}
+
+	\RequirePackage{etex}
+
+	\usepackage{fullpage}
+	\usepackage[a4paper]{geometry}
+	\usepackage{tikz}
+	\usepackage{graphicx}
+	\usepackage{worldflags}
+	\usepackage{amsmath}
+	\usepackage{amssymb}
+	\usepackage{titlepic}
+	\usepackage[pscoord]{eso-pic}
+	\newcommand{\placetextbox}[3]{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+		\setbox0=\hbox{#3}% Put <stuff> in a box
+		\AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+			\put(\LenToUnit{#1\paperwidth},\LenToUnit{#2\paperheight}){\vtop{{\null}\makebox[0pt][c]{#3}}}%
+		}%
+	}%
+	\textheight=720pt
+	\setlength{\voffset}{-1in}
+	\setlength{\hoffset}{-.5in}
+	\textwidth=500pt
+
+	\title{\Huge{$1}}
+	\author{Alexander Arutunian}
+	\date{\today}
+	\titlepic{\worldflag{AM}}
+
+	\begin{document}
+	\maketitle
+	\tableofcontents
+	\newpage
+	
+	$2
+
+
+
+
+	\end{document}
+
+snippet figimage "Figure env for image"
+	\begin{figure}
+		\includegraphics[scale=1]{}
+		\caption{}
+	\end{figure}

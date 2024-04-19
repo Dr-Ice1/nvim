@@ -113,13 +113,13 @@ snippet image "Include Graphics but with position"
 		\caption{$2}
 	\end{textblock*}
 
-snippet doc "Document start"
+snippet begdoc "Document start"
 	\documentclass[12pt,a4paper]{report}
 
 	\RequirePackage{etex}
 	 \usepackage[none]{hyphenat}
 	\usepackage{fullpage}
-	\usepackage[a4paper]{geometry}
+	\usepackage[a4paper]{geometry} %showframe
 	\usepackage{tikz}
 	\usepackage{graphicx}
 	\usepackage{worldflags}
@@ -140,6 +140,8 @@ snippet doc "Document start"
 	\setlength{\voffset}{-1in}
 	\setlength{\hoffset}{-.5in}
 	\textwidth=500pt
+	\setlength{\parindent}{0pt}
+	\renewcommand\thesection{\arabic{section}}
 
 	\title{\Huge{$1}}
 	\author{Alexander Arutunian}
@@ -166,7 +168,8 @@ snippet doc "Document start"
 
 snippet figimage "Figure env for image"
 	\begin{figure}[H]
-		\includegraphics[scale=.5]{}
+		\includegraphics[scale=.5]{$1}
+		\caption{$2}
 	\end{figure}
 
 snippet ref "References"
@@ -177,16 +180,25 @@ snippet ref "References"
 	\end{thebibliography}
 
 snippet url "Website url"
-	\textcolor{blue}{\url{$1}}
+	\textcolor{blue}{$1}
 
 snippet addtoc "Add to toc"
 	\addcontentsline{toc}{$1}{$2}
 
+snippet pmatr "parentheces matrix ()"
+	\begin{pmatrix}
+		$1
+	\end{pmatrix}
 
+snippet bmatr "brackets matrix []"
+	\begin{bmatrix}
+		$1
+	\end{bmatrix}
 
-
-
-
+snippet CBmatr "curlybrackets matrix {}"
+	\begin{Bmatrix}
+		$1
+	\end{Bmatrix}
 
 
 

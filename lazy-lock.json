@@ -34,5 +34,5 @@
   "trouble.nvim": { "branch": "main", "commit": "b9cf677f20bb2faa2dacfa870b084e568dca9572" },
   "vim-highlightedyank": { "branch": "master", "commit": "afb0f262b490706c23e94012c2ab9fa67c0481ce" },
   "vim-illuminate": { "branch": "master", "commit": "5eeb7951fc630682c322e88a9bbdae5c224ff0aa" },
-  "vimtex": { "branch": "master", "commit": "9665df7f51ee24aa81dbd81782e0a22480209753" }
+  "vimtex": { "branch": "master", "commit": "9f6a5bb0a9c9f1542fe88dc07511ce8401242e2a" }
 }

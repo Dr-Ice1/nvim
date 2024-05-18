@@ -5,6 +5,7 @@
 
 return { "lervag/vimtex",
   lazy = false,
+  tag = "v2.15",
   ft = {"tex", "markdown", "bib"},
   config = function()
        vim.g.vimtex_syntax_enabled = 1

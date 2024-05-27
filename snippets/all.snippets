@@ -4,7 +4,9 @@ snippet beg "begin{} / end{}"
 	\end{$1}
 
 snippet ch "chapter{}"
-	\chapter{$0}
+	\chapter*{$1}
+	\addcontentsline{toc}{chapter}{$1}
+	$2
 
 snippet sec "section{}"
 	\section{$0}
@@ -212,8 +214,13 @@ snippet dx2 "d variable"
 
 snippet flal "fl align (to left)"
 	\begin{flalign*}
-		$1&&\\
+		$1&&\\\
 	\end{flalign*}
 
 snippet emf "emf"
 	\text{emf}
+
+snippet mini "Minipage"
+	\begin{minipage}
+		$1
+	\end{minipage}

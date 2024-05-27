@@ -34,7 +34,7 @@ keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
 keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, opts)
 
 
-
-
+-- Trouble --
+vim.keymap.set("n", "<leader>tr", function() require("trouble").toggle("workspace_diagnostics") end)
 
 

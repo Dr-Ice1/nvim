@@ -8,5 +8,4 @@ require('lspconfig').pyright.setup({})
 require('lspconfig').texlab.setup({})
 
 require('plugins.nvim-cmp')
-vim.opt.laststatus=0
-
+require('lualine').setup()

@@ -5,7 +5,9 @@ snippet beg "begin{} / end{}"
 
 snippet ch "chapter{}"
 	\chapter*{$1}
+	\thispagestyle{fancy}
 	\addcontentsline{toc}{chapter}{$1}
+	\setcounter{section}{0}
 	$2
 
 snippet sec "section{}"
@@ -221,6 +223,35 @@ snippet emf "emf"
 	\text{emf}
 
 snippet mini "Minipage"
-	\begin{minipage}
+	\begin{minipage}{3cm}
 		$1
 	\end{minipage}
+
+snippet vec "vector 2D"
+	$1=\begin{pmatrix}
+		$2\\\
+		$3\\\
+	\end{pmatrix}
+
+snippet vec3 "vector 3D"
+	$1=\begin{pmatrix}
+		$2\\\
+		$3\\\
+		$4\\\
+	\end{pmatrix}
+
+snippet wrapfig "text next to fig"
+	\begin{wrapfigure}{R}{0.5\textwidth}
+  	\begin{center}
+  		\includegraphics[width=0.5\textwidth]{$1}
+		\end{center}
+  	\caption{Check je week}
+	\end{wrapfigure}
+
+snippet det "Determinant"
+	\text{det}$1
+
+snippet vmatr "|a|"
+	\begin{vmatrix}
+		
+	\end{vmatrix}

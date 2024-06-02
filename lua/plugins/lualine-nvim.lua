@@ -1,12 +1,9 @@
 return {
 	"nvim-lualine/lualine.nvim",
-  enabled = false,
-	event = "VeryLazy",
+	event = 'VeryLazy',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
-  opts = {
-    options = {
-      theme = 'solarized-osaka',
-    },
+  options = { theme = 'solarized dark'},
+  config = function ()
+    require('lualine').setup()
+  end
   }
-}
-

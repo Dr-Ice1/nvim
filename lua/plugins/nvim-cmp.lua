@@ -89,8 +89,7 @@ return {
     end,
       },
 		})
-	end,
-	dependencies = {
+	  dependencies = {
 		"onsails/lspkind.nvim",
     "hrsh7th/cmp-nvim-lsp",
 		{
@@ -110,7 +109,6 @@ return {
         end, {silent = true})
       end
 		},
-    'saadparwaiz1/cmp_luasnip',
-	},
-}
-
+    'saadparwaiz1/cmp_luasnip',}
+  end,
+  }

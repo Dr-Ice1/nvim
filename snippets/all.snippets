@@ -1,0 +1,472 @@
+snippet beg "begin{} / end{}"
+	\begin{$1}
+		$0
+	\end{$1}
+
+snippet ch "chapter{}"
+	\chapter*{$1}
+	\thispagestyle{fancy}
+	\setcounter{chapter}{$2}
+	\addcontentsline{toc}{chapter}{$1}
+	\setcounter{section}{0}
+	$3
+
+snippet chweek 'Week x'
+	\chapter*{Week $1}
+	\setcounter{chapter}{$1}
+	\thispagestyle{fancy}
+	\addcontentsline{toc}{chapter}{Week $1}
+	\setcounter{section}{1}
+	$2
+
+snippet sec "section{}"
+	\section{$0}
+
+snippet subsec "subsection{}"
+	\subsection{$0}
+
+snippet sf 'start file'
+	\title{$1}
+	\author{$2}
+	\date{\today}
+
+	\begin{document}
+		$4
+	\end{document}
+
+snippet eq "equation"
+	\begin{equation}
+		$1
+	\end{equation}
+
+snippet eqal "aligned equation"
+	\begin{equation}
+		\begin{aligned}
+			$1
+		\end{aligned}
+	\end{equation}
+
+snippet fr "fraction"
+	\frac{$1}{$2}
+
+snippet vs "vspace*"
+	\vspace*{$1cm}
+
+snippet dx "dx integral"
+	\, \text{d}$1
+
+
+snippet te "Text"
+	\text{$1}
+
+snippet lag "Lagrange"
+	$\mathscr{L}$$agrange$1
+
+snippet prime "Prime"
+	$1^{\prime}
+
+snippet power "To the power of"
+	$1^{$2}
+
+snippet hs "Horizontal Space"
+	\hspace*{$1cm}
+
+snippet color "Colored text"
+	\textcolor{$1}{$2}
+
+snippet	leibniz "dy/dx"
+	\frac{\text{d}$1}{\text{d}$2}
+
+snippet lagr "f prime"
+	$1^{($2)}
+
+snippet dotderiv "Dot Derivative"
+	\dot{$1}
+
+snippet align "Every eq has number"
+	\begin{align}
+		$1
+	\end{align}
+
+snippet bf "Bold text"
+	\textbf{$1}
+
+snippet alnon "align no number"
+	\begin{align*}
+		$1
+	\end{align*}
+
+snippet tab 'table'
+	\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			  & $x_1$ & $x_2$ & $x_3$ & $x_4$ \\
+			\hline
+			H & 8     & 0     & 0     & -2    \\
+			\hline
+			C & 3     & 0     & -1    & 0     \\
+			\hline
+			O & 0     & 2     & -2    & -1    \\
+			\hline
+	\end{tabular}
+
+snippet block "Beamer block"
+	\begin{block}{$1}
+		$2
+	\end{block}
+
+snippet frame "Frame beamer"
+	\begin{frame}{$1}
+		$2
+	\end{frame}
+
+snippet inclgr "Include Graphics"
+	\includegraphics[scale=1]{$1}
+
+snippet image "Include Graphics but with position"
+	\begin{textblock*}{5cm}(2cm,2cm)
+  	\includegraphics[scale=1]{$1}
+		\caption{$2}
+	\end{textblock*}
+
+snippet begdoc "Document start"
+	\documentclass[12pt,a4paper]{report}
+
+	\RequirePackage{etex}
+	 \usepackage[none]{hyphenat}
+	\usepackage{fullpage}
+	\usepackage[a4paper]{geometry} %showframe
+	\usepackage{tikz}
+	\usetikzlibrary{angles, quotes}
+	\usetikzlibrary{shapes, arrows.meta, positioning}
+	\usetikzlibrary{arrows}
+	\newcommand{\midarrow}{\tikz \draw[-triangle 90] (0,0) -- +(.1,0);}
+	\usepackage{graphicx}
+	\usepackage{worldflags}
+	\usepackage{fancyhdr}
+	\usepackage{amsmath,amsthm}
+	\usepackage{xcolor,soul}
+	\usepackage{mathtools}
+	\usepackage{rotate}
+	\usepackage{amssymb}
+	\usepackage{circuitikz}
+	\usepackage{hyperref}
+	\usepackage{float}
+	\usepackage{wrapfig}
+	\usepackage{titlepic}
+	\usepackage{framed}
+	\usepackage{titlesec}
+	\usepackage{pifont}
+	\usepackage{chemformula}
+	\usepackage[pscoord]{eso-pic}
+	\newcommand{\placetextbox}[3]{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+		\setbox0=\hbox{#3}% Put <stuff> in a box
+		\AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+			\put(\LenToUnit{#1\paperwidth},\LenToUnit{#2\paperheight}){\vtop{{\null}\makebox[0pt][c]{#3}}}%
+		}%
+	}%
+	\textheight=720pt
+	\setlength{\voffset}{-1in}
+	\setlength{\hoffset}{-.5in}
+	\textwidth=500pt
+	\setlength{\parindent}{0pt}
+	\renewcommand\thesection{\arabic{section}}
+	\renewcommand{\theenumi}{(\arabic{enumi})}
+	\newcommand{\xrightarrowsub}[2]{%
+		\mathrel{\mathop{\xrightarrow{\makebox[#1]{}}}\limits_{\makebox[0pt]{\scriptsize#2}}}%
+	}
+	\setlength{\headheight}{14.49998pt}
+	\setcounter{secnumdepth}{3}
+	\setcounter{tocdepth}{3}
+	\theoremstyle{definition}
+	\newtheorem{definition}{Definition}[section]
+	\newcommand{\parallelsum}{\mathbin{\!/\mkern-5mu/\!}}
+
+	\title{\Huge{$1}}
+	\author{Alexander Arutunian}
+	\date{\today}
+	\titlepic{\worldflag{AM}}
+
+	\begin{document}
+	\maketitle
+	\tableofcontents
+	\newpage
+	\pagestyle{fancy}
+	\fancyhead[L]{Laatste toets}
+	\fancyhead[C]{Wiskunde 1.4}
+	\fancyhead[R]{Week \thechapter}
+	\fancyfoot[R]{Ez toets}
+
+
+	
+	$2
+
+
+	\begin{thebibliography}{9}
+
+	 \bibitem{lamport94}
+		
+	\end{thebibliography}
+
+
+	\end{document}
+
+snippet figimage "Figure env for image"
+	\begin{figure}[H]
+		\includegraphics[scale=.5]{$1}
+		\caption{$2}
+	\end{figure}
+
+snippet ref "References"
+	\begin{thebibliography}{9}
+
+	 \bibitem{lamport94}
+		$1	
+	\end{thebibliography}
+
+snippet url "Website url"
+	\textcolor{blue}{$1}
+
+snippet addtoc "Add to toc"
+	\addcontentsline{toc}{$1}{$2}
+
+snippet pmatr "parentheces matrix ()"
+	\begin{pmatrix}
+		$1
+	\end{pmatrix}
+
+snippet bmatr "brackets matrix []"
+	\begin{bmatrix}
+		$1
+	\end{bmatrix}
+
+snippet CBmatr "curlybrackets matrix {}"
+	\begin{Bmatrix}
+		$1
+	\end{Bmatrix}
+
+snippet arrowdub "dubble arrow"
+	\quad\Rightarrow\quad
+
+snippet newpage "newpage"
+	\newpage
+	\vspace*{1cm}
+
+snippet dx2 "d variable"
+	\text{d}$1
+
+snippet flal "fl align (to left)"
+	\begin{flalign*}
+		$1&&\\\
+	\end{flalign*}
+
+snippet emf "emf"
+	\text{emf}
+
+snippet mini "Minipage"
+	\begin{minipage}{3cm}
+		$1
+	\end{minipage}
+
+snippet vec "vector 2D"
+	$1=\begin{pmatrix}
+		$2\\\
+		$3\\\
+	\end{pmatrix}
+
+snippet vec3 "vector 3D"
+	$1=\begin{pmatrix}
+		$2\\\
+		$3\\\
+		$4\\\
+	\end{pmatrix}
+
+snippet wrapfig "text next to fig"
+	\begin{wrapfigure}{R}{0.5\textwidth}
+  	\begin{center}
+  		\includegraphics[width=0.5\textwidth]{$1}
+		\end{center}
+  	\caption{Check je week}
+	\end{wrapfigure}
+
+snippet det "Determinant"
+	\text{det}$1
+
+snippet vmatr "|a|"
+	\begin{vmatrix}
+		
+	\end{vmatrix}
+
+snippet cd 'cdot'
+	\cdot
+
+snippet th 'theta'
+	\theta
+
+snippet sinth 'sin(theta)'
+	\sin(\theta)
+
+snippet sinph 'sin(phi)'
+	\sin(\phi)
+
+snippet sin 'sin()'
+	\sin($1)
+
+snippet cos 'cos()'
+	\cos($1)
+
+snippet node 'node'
+	\node at ($1){$2};
+
+snippet rightarrow 'rightarrow'
+	\quad\rightarrow\quad
+
+snippet box 'floating text box'
+	\placetextbox{.5}{.5}{$1}
+
+snippet 3dbox '3 dimensional box tikz'
+  \pgfmathsetmacro{\cubex}{5}
+  \pgfmathsetmacro{\cubey}{1}
+  \pgfmathsetmacro{\cubez}{3}
+  \draw [thick]
+    (0,0,0) coordinate (o) -- ++(-\cubex,0,0) coordinate (a) -- ++(0,-\cubey,0) coordinate (b) edge coordinate [pos=1] (g) ++(0,0,-\cubez)  -- ++(\cubex,0,0) coordinate (c) -- cycle
+    (o) -- ++(0,0,-\cubez) coordinate (d) -- ++(0,-\cubey,0) coordinate (e) edge (g) -- (c) -- cycle
+    (o) -- (a) -- ++(0,0,-\cubez) coordinate (f) edge (g) -- (d) -- cycle;
+
+snippet rlarr 'right left arrow'
+	\Longleftrightarrow
+
+snippet glsb 'glossary word BOLD'
+	\textbf{\gls{$1}
+
+snippet gls 'glossary word'
+	\gls{$1}
+
+snippet glsentr 'new gls entry'
+	\newglossaryentry{$1}{name={$1}, description={$2}}
+
+snippet chcontr 'chapter counter'
+	\setcounter{chapter}{$1}
+
+snippet items3 'itemize with 3 items'
+	\begin{itemize}
+		\item $1
+		\item $2
+		\item $3
+	\end{itemize}
+
+snippet items4 'itemize with 4 items'
+	\begin{itemize}
+		\item $1
+		\item $2
+		\item $3
+		\item $4
+	\end{itemize}
+
+snippet items5 'itemize with 5 items'
+	\begin{itemize}
+		\item $1
+		\item $2
+		\item $3
+		\item $4
+		\item $5
+	\end{itemize}
+
+snippet items6 'itemize with 6 items'
+	\begin{itemize}
+		\item $1
+		\item $2
+		\item $3
+		\item $4
+		\item $5
+		\item $6
+	\end{itemize}
+
+
+snippet enum3 'enumerate with 3 items'
+	\begin{enumerate}
+		\item $1
+		\item $2
+		\item $3
+	\end{enumerate}
+
+snippet enum4 ''
+	\begin{enumerate}
+		\item $1
+		\item $2
+		\item $3
+		\item $4
+	\end{enumerate}
+
+snippet enum5 ''
+	\begin{enumerate}
+		\item $1
+		\item $2
+		\item $3
+		\item $4
+		\item $5
+	\end{enumerate}
+
+snippet enum6 'itemize with 6 items'
+	\begin{enumerate}
+		\item $1
+		\item $2
+		\item $3
+		\item $4
+		\item $5
+		\item $6
+	\end{enumerate}
+
+snippet cdelta 'Delta'
+	\Delta
+
+
+snippet link 'Link for MarkDown files'
+	<a href="$1" target="_blank">$2</a>
+
+snippet note 'note for MarkDown'
+	><span style="color: #539bf5; font-weight: bold;">&#128712; Note: </span>
+
+snippet ast 'asterisk markdown'
+	∗
+
+snippet dast 'double asterisk markdown'
+	∗∗
+
+snippet tast 'triple asterisk markdown'
+	∗∗∗
+
+snippet center 'center markdown'
+	<div style="text-align: center;"></div>
+
+snippet sup "superscript md"
+	<sup><b>$1</b></sup>
+
+snippet boldhtml "<b></b>"
+	<b>$1</b>
+
+snippet underlinehtml "<u></u>"
+	<u>$1</u>
+
+snippet italichtml "<i></i>"
+	<i>$1</i>
+
+snippet astlink "link with one asterisk"
+	(<a href="$1" target="_blank"><b>∗</b></a>)
+
+snippet dastlink "link with one asterisk"
+	(<a href="$1" target="_blank"><b>∗∗</b></a>)
+
+snippet trastlink "link with one asterisk"
+	(<a href="$1" target="_blank"><b>∗∗∗</b></a>)
+
+snippet paddinghtml "padding space"
+	<div style="padding-left: 20px; padding-right: 20px;">
+
+snippet anchor 'hmtl anchor with name'
+	<a name='$1'></a>
+
+snippet tocref 'reference model for toc'
+	[$1](#$2)
+
+snippet aznuc 'the A Z in nuclear physics'
+	^A _Z

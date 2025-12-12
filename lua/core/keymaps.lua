@@ -31,6 +31,9 @@ vim.keymap.set("n", "<leader>da", "<C-^>")
 -- Markdown
 vim.keymap.set("n", "<leader>md", "<CMD>MarkdownPreview<CR>")
 
+-- Live preview
+vim.keymap.set("n", "<leader>lp", "<CMD>LivePreview<CR>")
+
 -- Bufferline
 vim.keymap.set('n', '<S-l>', ':BufferLineCycleNext<CR>', { silent = true })
 vim.keymap.set('n', '<S-h>', ':BufferLineCyclePrev<CR>', { silent = true })
